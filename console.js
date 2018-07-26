@@ -29,7 +29,6 @@
         document.body.appendChild(style);
 
         var obj = document.createElement("button");
-        //obj.style="border-radius: 50%;background:#4285F4;"
         obj.style.zIndex = 100;
         obj.style.color = "white";
         obj.style.margin="16px";
@@ -61,12 +60,9 @@
         cli.style.marginRight="auto";
         cli.style.opacity=".87";
         cli.style.maxWidth="500px"
-        // cli.style.padding="8px";
         obj.style.paddingTop="4px";
-        //cli.style.paddingLeft = "16px";
         cli.classList.add("mdl-shadow--4dp")
         cli.style.overflowY = "scroll";
-        // cli.style.overflowX = "hidden";
         cli.id ="cli";
         var codes = cli.innerHTML;
         cli.innerHTML = '<button onclick="document.querySelector(\'#cli\').style.marginBottom = \'-45vh\';" id="closeConsole" style="background:transparent;padding:2px;width:30px;height:30px;position:fixed;right:0;left:0;margin-right:auto;margin-left:auto;margin-top:8px;border-radius:100%;outline:none;border:none;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.41,8.59L12,13.17l4.59-4.58L18,10l-6,6l-6-6L7.41,8.59z"/><path fill="none" d="M0,0h24v24H0V0z"/></svg></button><div style="margin-bottom:42px;"></div>';
@@ -75,8 +71,6 @@
         document.body.appendChild(cli);
         obj.addEventListener("click",function(){
             cli.style.marginBottom = 0;
-            //cli.style.boxShadow = "0px -1px 20px #757575";
-            // cli.style.opacity = 1
             openToggler = !openToggler;
             if(openToggler){
                 cli.style.marginBottom = 0;
@@ -87,17 +81,11 @@
         document.querySelector("#closeConsole").addEventListener("click",function(){
             cli.style.marginBottom = "-60vh";
             openToggler = false;
-            //cli.style.opacity = 0;
         })
       }
-    window.onerror = function(message, url, lineNumber) {  
-        //save error and send to server for example.
-        //alert(message+"@line"+lineNumber+" of "+url)
+    window.onerror = function(message, url, lineNumber) {
         cli.style.marginBottom = 0;
-        //cli.style.opacity = 1;
         cli.innerHTML+='<div style="word-wrap: break-word;border-bottom: 1px solid rgba(0,0,0,.3);background:#ffcdd2;padding:8px;"><code style="color:red;">"'+message+'" <u>at line '+lineNumber+' of '+url+'</u></code></div>'
-        //cli.innerHTML+='<i style="color:red;">-- May you <a style="color:red" href="javascript:window.location.reload();">reload</a> and try again.</i>'
-        
         
         return true;
     }; 
