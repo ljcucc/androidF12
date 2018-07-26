@@ -1,4 +1,4 @@
-# androidF12
+# mobileConsole
 A development tool for web developement on any devices, best for android.
 
 ## Usage
